@@ -12,13 +12,16 @@ public class SaveTask : MonoBehaviour
     public InputField textDesc;
     public GameObject taskTemplate;
     public Text templateTitle;
-    public GameObject parent;
+    public GameObject today;
+    public GameObject complete;
     private GameObject task;
     private int numOfTask;
+    private int numOfTaskCo;
     // Start is called before the first frame update
     void Start()
     {
         numOfTask = 0;
+        numOfTaskCo = 0;
     }
 
     // Update is called once per frame
@@ -32,11 +35,17 @@ public class SaveTask : MonoBehaviour
         Debug.Log(textTitle.text + '\n' + textDesc.text);
         templateTitle.text = textTitle.text;
         task = Instantiate(taskTemplate);
-        task.transform.SetParent(parent.transform);
+        task.transform.SetParent(today.transform);
         task.transform.localPosition = new Vector3(125.5f, numOfTask * -88f - 67.5f, 0);
         task.SetActive(true);
         textTitle.text = "";
         textDesc.text = "";
         numOfTask++;
+    }
+    public void Complete()
+    {
+        task.transform.SetParent(complete.transform);
+        task.transform.localPosition = new Vector3(112.5f, numOfTaskCo * -88f - 67.5f, 0);
+        numOfTaskCo++;
     }
 }
