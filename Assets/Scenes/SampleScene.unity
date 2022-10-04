@@ -292,18 +292,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1559090969}
-        m_TargetAssemblyTypeName: AddTask, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &104220252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -112.5, y: -106.5}
+  m_AnchoredPosition: {x: -112.5, y: 157.5}
   m_SizeDelta: {x: 102, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -893,18 +881,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1559090971}
         m_TargetAssemblyTypeName: SaveTask, Assembly-CSharp
         m_MethodName: saveTask
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1559090970}
-        m_TargetAssemblyTypeName: ShowTaskOrDefaultBG, Assembly-CSharp
-        m_MethodName: addTask
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1774,7 +1750,6 @@ GameObject:
   - component: {fileID: 1559090973}
   - component: {fileID: 1559090972}
   - component: {fileID: 1559090971}
-  - component: {fileID: 1559090970}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1782,21 +1757,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1559090970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559090969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467671a490538d240a2804af4b10be61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultBG: {fileID: 1753556747}
-  task: {fileID: 815315937}
-  complete: {fileID: 419936211}
 --- !u!114 &1559090971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1809,15 +1769,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a97ce06fbe63dc45a7d85837f21dc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultBG: {fileID: 1753556747}
   addUI: {fileID: 2000183811}
-  title: {fileID: 2113736625}
-  desc: {fileID: 922196472}
   textTitle: {fileID: 2113736627}
   textDesc: {fileID: 922196473}
   taskTemplate: {fileID: 2045762102}
   templateTitle: {fileID: 832777309}
   today: {fileID: 2066227563}
   complete: {fileID: 419936211}
+  taskIndex: {fileID: 815315937}
 --- !u!114 &1559090972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2045,6 +2005,7 @@ GameObject:
   - component: {fileID: 1660594038}
   - component: {fileID: 1660594037}
   - component: {fileID: 1660594036}
+  - component: {fileID: 1660594039}
   m_Layer: 5
   m_Name: ButtonComplete
   m_TagString: Untagged
@@ -2117,9 +2078,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1559090971}
-        m_TargetAssemblyTypeName: SaveTask, Assembly-CSharp
-        m_MethodName: Complete
+      - m_Target: {fileID: 1660594039}
+        m_TargetAssemblyTypeName: Complete, Assembly-CSharp
+        m_MethodName: completeTask
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2167,6 +2128,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660594034}
   m_CullTransparentMesh: 1
+--- !u!114 &1660594039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660594034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efa2fd55ac6cb74998a36a8c7b3deda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: {fileID: 419936211}
+  today: {fileID: 2066227563}
 --- !u!1 &1753556747
 GameObject:
   m_ObjectHideFlags: 0

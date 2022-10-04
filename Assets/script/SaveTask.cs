@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class SaveTask : MonoBehaviour
 {
+    public GameObject defaultBG;
     public GameObject addUI;
-    public GameObject title;
-    public GameObject desc;
     public InputField textTitle;
     public InputField textDesc;
     public GameObject taskTemplate;
@@ -15,13 +14,12 @@ public class SaveTask : MonoBehaviour
     public GameObject today;
     public GameObject complete;
     private GameObject task;
-    private int numOfTask;
-    private int numOfTaskCo;
+    public GameObject taskIndex;
+    private int numOfTaskTo;
     // Start is called before the first frame update
     void Start()
     {
-        numOfTask = 0;
-        numOfTaskCo = 0;
+        taskIndex.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,20 +30,17 @@ public class SaveTask : MonoBehaviour
     public void saveTask()
     {
         addUI.SetActive(false);
-        Debug.Log(textTitle.text + '\n' + textDesc.text);
         templateTitle.text = textTitle.text;
         task = Instantiate(taskTemplate);
         task.transform.SetParent(today.transform);
-        task.transform.localPosition = new Vector3(125.5f, numOfTask * -88f - 67.5f, 0);
+        numOfTaskTo = today.transform.childCount - 1;
+        Debug.Log(numOfTaskTo);
+        task.transform.localPosition = new Vector3(125.5f, numOfTaskTo * -88f - 67.5f, 0);
         task.SetActive(true);
         textTitle.text = "";
         textDesc.text = "";
-        numOfTask++;
-    }
-    public void Complete()
-    {
-        task.transform.SetParent(complete.transform);
-        task.transform.localPosition = new Vector3(112.5f, numOfTaskCo * -88f - 67.5f, 0);
-        numOfTaskCo++;
+        complete.transform.position += new Vector3(0, -88f, 0);
+        defaultBG.SetActive(false);
+        taskIndex.SetActive(true);
     }
 }
