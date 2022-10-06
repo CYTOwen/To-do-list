@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Complete : MonoBehaviour
 {
-    public GameObject complete;
-    public GameObject today;
+    public Data data;
+    private GameObject complete;
+    private GameObject today;
     private int numOfTaskCo;
     private int numOfTaskTo;
     private GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
-
+        complete = data.complete;
+        today = data.today;
     }
 
     // Update is called once per frame
