@@ -14,5 +14,6 @@ public class Data : MonoBehaviour
     public GameObject addUI;
     public InputField textTitle;
     public InputField textDesc;
-
+    public List<GameObject> taskToday;
+    public List<GameObject> taskComplete;
 }

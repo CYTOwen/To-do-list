@@ -16,7 +16,7 @@ public class SaveTask : MonoBehaviour
     private GameObject complete;
     private GameObject task;
     private GameObject taskIndex;
-    private int numOfTaskTo;
+    private List<GameObject> taskToday;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,7 @@ public class SaveTask : MonoBehaviour
         complete = data.complete;
         taskIndex = data.task;
         taskIndex.SetActive(false);
+        taskToday = data.taskToday;
     }
 
     // Update is called once per frame
@@ -39,11 +40,14 @@ public class SaveTask : MonoBehaviour
     {
         addUI.SetActive(false);
         task = Instantiate(taskTemplate);
+        task.GetComponent<Complete>().data = data;
+        task.name = textTitle.text;
         taskTitle = task.GetComponentInChildren<Text>();
+        taskTitle.text = textTitle.text;
         task.transform.SetParent(today.transform);
-        numOfTaskTo = today.transform.childCount - 1;
-        Debug.Log(numOfTaskTo);
-        task.transform.localPosition = new Vector3(125.5f, numOfTaskTo * -88f - 67.5f, 0);
+        taskToday.Add(task);
+        Debug.Log(taskToday.Count);
+        task.transform.localPosition = new Vector3(125.5f, (taskToday.Count-1) * -88f - 67.5f, 0);
         textTitle.text = "";
         textDesc.text = "";
         complete.transform.position += new Vector3(0, -88f, 0);

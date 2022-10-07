@@ -1465,6 +1465,8 @@ MonoBehaviour:
   addUI: {fileID: 2000183811}
   textTitle: {fileID: 2113736627}
   textDesc: {fileID: 922196473}
+  taskToday: []
+  taskComplete: []
 --- !u!224 &997275377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1588,7 +1590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 997275376}
-  taskTemplate: {fileID: 6474494465351652894, guid: d3a231b8400ac6d4697ff362cc1e8f5e, type: 3}
+  taskTemplate: {fileID: 4234618565315487371, guid: d3a231b8400ac6d4697ff362cc1e8f5e, type: 3}
 --- !u!114 &1559090972
 MonoBehaviour:
   m_ObjectHideFlags: 0
