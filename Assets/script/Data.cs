@@ -16,4 +16,8 @@ public class Data : MonoBehaviour
     public InputField textDesc;
     public List<GameObject> taskToday;
     public List<GameObject> taskComplete;
+    public float distanceToday = 125.5f;
+    public float distanceComplete = 112.5f;
+    public float distanceBetweenTasks = 88f;
+    public float distanceBetweenTasksFirst = 67.5f;
 }

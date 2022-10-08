@@ -9,6 +9,10 @@ public class Complete : MonoBehaviour
     private GameObject today;
     private List<GameObject> taskComplete;
     private List<GameObject> taskToday;
+    private float distanceToday;
+    private float distanceComplete;
+    private float distanceBetweenTasks;
+    private float distanceBetweenTasksFirst;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +20,10 @@ public class Complete : MonoBehaviour
         today = data.today;
         taskComplete = data.taskComplete;
         taskToday = data.taskToday;
+        distanceToday = data.distanceToday;
+        distanceComplete = data.distanceComplete;
+        distanceBetweenTasks = data.distanceBetweenTasks;
+        distanceBetweenTasksFirst = data.distanceBetweenTasksFirst;
     }
 
     // Update is called once per frame
@@ -27,30 +35,30 @@ public class Complete : MonoBehaviour
     {
         if (this.transform.parent.name == "Today")
         {
-            foreach (Transform child in today.transform)
+            for(int i = 0;i < taskToday.Count;i++)
             {
-                if (child.transform.position.y < this.transform.position.y)
-                    child.transform.position += new Vector3(0, 88f, 0);
+                if (taskToday[i].transform.position.y < this.transform.position.y)
+                    taskToday[i].transform.position += new Vector3(0, distanceBetweenTasks, 0);
             }
             taskToday.Remove(this.gameObject);
             taskComplete.Add(this.gameObject);
             this.transform.SetParent(complete.transform);
-            this.transform.localPosition = new Vector3(112.5f, (taskComplete.Count-1) * -88f - 67.5f, 0);
-            complete.transform.position += new Vector3(0, 88f, 0);
+            this.transform.localPosition = new Vector3(distanceComplete, (taskComplete.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
+            complete.transform.position += new Vector3(0, distanceBetweenTasks, 0);
             
         }
         else if (this.transform.parent.name == "Complete")
         {
-            foreach (Transform child in complete.transform)
+            for (int i = 0; i < taskComplete.Count; i++)
             {
-                if (child.transform.position.y < this.transform.position.y)
-                    child.transform.position += new Vector3(0, 88f, 0);
+                if (taskComplete[i].transform.position.y < this.transform.position.y)
+                    taskComplete[i].transform.position += new Vector3(0, distanceBetweenTasks, 0);
             }
             taskToday.Add(this.gameObject);
             taskComplete.Remove(this.gameObject);
             this.transform.SetParent(today.transform);
-            this.transform.localPosition = new Vector3(125.5f, (taskToday.Count-1) * -88f - 67.5f, 0);
-            complete.transform.position += new Vector3(0, -88f, 0);
+            this.transform.localPosition = new Vector3(distanceToday, (taskToday.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
+            complete.transform.position += new Vector3(0, -distanceBetweenTasks, 0);
         }
         else
             Debug.Log("WR");

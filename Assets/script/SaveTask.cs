@@ -17,6 +17,9 @@ public class SaveTask : MonoBehaviour
     private GameObject task;
     private GameObject taskIndex;
     private List<GameObject> taskToday;
+    private float distanceToday;
+    private float distanceBetweenTasks;
+    private float distanceBetweenTasksFirst;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,9 @@ public class SaveTask : MonoBehaviour
         taskIndex = data.task;
         taskIndex.SetActive(false);
         taskToday = data.taskToday;
+        distanceToday = data.distanceToday;
+        distanceBetweenTasks = data.distanceBetweenTasks;
+        distanceBetweenTasksFirst = data.distanceBetweenTasksFirst;
     }
 
     // Update is called once per frame
@@ -46,11 +52,10 @@ public class SaveTask : MonoBehaviour
         taskTitle.text = textTitle.text;
         task.transform.SetParent(today.transform);
         taskToday.Add(task);
-        Debug.Log(taskToday.Count);
-        task.transform.localPosition = new Vector3(125.5f, (taskToday.Count-1) * -88f - 67.5f, 0);
+        task.transform.localPosition = new Vector3(distanceToday, (taskToday.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
         textTitle.text = "";
         textDesc.text = "";
-        complete.transform.position += new Vector3(0, -88f, 0);
+        complete.transform.position += new Vector3(0, -distanceBetweenTasks, 0);
         defaultBG.SetActive(false);
         taskIndex.SetActive(true);
     }
