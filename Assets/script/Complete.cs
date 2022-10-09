@@ -5,8 +5,12 @@ using UnityEngine;
 public class Complete : MonoBehaviour
 {
     public Data data;
+    private RectTransform posThis;
+    private RectTransform posOther;
     private GameObject complete;
+    private RectTransform completePos;
     private GameObject today;
+    private RectTransform todayPos;
     private List<GameObject> taskComplete;
     private List<GameObject> taskToday;
     private float distanceToday;
@@ -16,8 +20,11 @@ public class Complete : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        posThis = this.transform as RectTransform;
         complete = data.complete;
+        completePos = data.completePos;
         today = data.today;
+        todayPos = data.todayPos;
         taskComplete = data.taskComplete;
         taskToday = data.taskToday;
         distanceToday = data.distanceToday;
@@ -33,32 +40,34 @@ public class Complete : MonoBehaviour
     }
     public void completeTask()
     {
-        if (this.transform.parent.name == "Today")
+        if (posThis.parent.name == "Today")
         {
             for(int i = 0;i < taskToday.Count;i++)
             {
-                if (taskToday[i].transform.position.y < this.transform.position.y)
-                    taskToday[i].transform.position += new Vector3(0, distanceBetweenTasks, 0);
+                posOther = taskToday[i].transform as RectTransform;
+                if (posOther.anchoredPosition3D.y < posThis.anchoredPosition3D.y)
+                    posOther.anchoredPosition3D += new Vector3(0, distanceBetweenTasks, 0);
             }
             taskToday.Remove(this.gameObject);
             taskComplete.Add(this.gameObject);
-            this.transform.SetParent(complete.transform);
-            this.transform.localPosition = new Vector3(distanceComplete, (taskComplete.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
-            complete.transform.position += new Vector3(0, distanceBetweenTasks, 0);
+            posThis.SetParent(completePos);
+            posThis.anchoredPosition3D = new Vector3(distanceComplete, (taskComplete.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
+            completePos.anchoredPosition3D += new Vector3(0, distanceBetweenTasks, 0);
             
         }
-        else if (this.transform.parent.name == "Complete")
+        else if (posThis.parent.name == "Complete")
         {
             for (int i = 0; i < taskComplete.Count; i++)
             {
-                if (taskComplete[i].transform.position.y < this.transform.position.y)
-                    taskComplete[i].transform.position += new Vector3(0, distanceBetweenTasks, 0);
+                posOther = taskComplete[i].transform as RectTransform;
+                if (posOther.anchoredPosition3D.y < posThis.anchoredPosition3D.y)
+                    posOther.anchoredPosition3D += new Vector3(0, distanceBetweenTasks, 0);
             }
             taskToday.Add(this.gameObject);
             taskComplete.Remove(this.gameObject);
-            this.transform.SetParent(today.transform);
-            this.transform.localPosition = new Vector3(distanceToday, (taskToday.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
-            complete.transform.position += new Vector3(0, -distanceBetweenTasks, 0);
+            posThis.SetParent(todayPos);
+            posThis.anchoredPosition3D = new Vector3(distanceToday, (taskToday.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
+            completePos.anchoredPosition3D += new Vector3(0, -distanceBetweenTasks, 0);
         }
         else
             Debug.Log("WR");

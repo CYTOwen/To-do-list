@@ -13,8 +13,9 @@ public class SaveTask : MonoBehaviour
     public GameObject taskTemplate;
     private Text taskTitle;
     private GameObject today;
-    private GameObject complete;
+    private RectTransform completePos;
     private GameObject task;
+    private RectTransform taskPos;
     private GameObject taskIndex;
     private List<GameObject> taskToday;
     private float distanceToday;
@@ -28,7 +29,7 @@ public class SaveTask : MonoBehaviour
         textTitle = data.textTitle;
         textDesc = data.textDesc;
         today = data.today;
-        complete = data.complete;
+        completePos = data.completePos;
         taskIndex = data.task;
         taskIndex.SetActive(false);
         taskToday = data.taskToday;
@@ -46,16 +47,17 @@ public class SaveTask : MonoBehaviour
     {
         addUI.SetActive(false);
         task = Instantiate(taskTemplate);
+        taskPos = task.transform as RectTransform;
         task.GetComponent<Complete>().data = data;
         task.name = textTitle.text;
         taskTitle = task.GetComponentInChildren<Text>();
         taskTitle.text = textTitle.text;
         task.transform.SetParent(today.transform);
         taskToday.Add(task);
-        task.transform.localPosition = new Vector3(distanceToday, (taskToday.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
+        taskPos.anchoredPosition3D = new Vector3(distanceToday, (taskToday.Count-1) * -distanceBetweenTasks - distanceBetweenTasksFirst, 0);
         textTitle.text = "";
         textDesc.text = "";
-        complete.transform.position += new Vector3(0, -distanceBetweenTasks, 0);
+        completePos.anchoredPosition3D += new Vector3(0, -distanceBetweenTasks, 0);
         defaultBG.SetActive(false);
         taskIndex.SetActive(true);
     }

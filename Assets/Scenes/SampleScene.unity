@@ -1461,12 +1461,18 @@ MonoBehaviour:
   task: {fileID: 815315937}
   inputSearch: {fileID: 176283811}
   today: {fileID: 2066227563}
+  todayPos: {fileID: 2066227564}
   complete: {fileID: 419936211}
+  completePos: {fileID: 419936214}
   addUI: {fileID: 2000183811}
   textTitle: {fileID: 2113736627}
   textDesc: {fileID: 922196473}
   taskToday: []
   taskComplete: []
+  distanceToday: 125.5
+  distanceComplete: 112.5
+  distanceBetweenTasks: 88
+  distanceBetweenTasksFirst: 67.5
 --- !u!224 &997275377
 RectTransform:
   m_ObjectHideFlags: 0

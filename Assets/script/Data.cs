@@ -10,7 +10,9 @@ public class Data : MonoBehaviour
     public GameObject task;
     public GameObject inputSearch;
     public GameObject today;
+    public RectTransform todayPos;
     public GameObject complete;
+    public RectTransform completePos;
     public GameObject addUI;
     public InputField textTitle;
     public InputField textDesc;
