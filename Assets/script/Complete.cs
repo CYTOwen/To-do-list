@@ -7,9 +7,7 @@ public class Complete : MonoBehaviour
     public Data data;
     private RectTransform posThis;
     private RectTransform posOther;
-    private GameObject complete;
     private RectTransform completePos;
-    private GameObject today;
     private RectTransform todayPos;
     private List<GameObject> taskComplete;
     private List<GameObject> taskToday;
@@ -21,9 +19,7 @@ public class Complete : MonoBehaviour
     void Start()
     {
         posThis = this.transform as RectTransform;
-        complete = data.complete;
         completePos = data.completePos;
-        today = data.today;
         todayPos = data.todayPos;
         taskComplete = data.taskComplete;
         taskToday = data.taskToday;

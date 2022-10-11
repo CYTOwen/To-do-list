@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SaveTask : MonoBehaviour
 {
     public Data data;
+    public BG bg;
     private GameObject defaultBG;
     private GameObject addUI;
     private InputField textTitle;
@@ -24,7 +25,7 @@ public class SaveTask : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defaultBG = data.defaultBG;
+        defaultBG = bg.defaultBG;
         addUI = data.addUI;
         textTitle = data.textTitle;
         textDesc = data.textDesc;
