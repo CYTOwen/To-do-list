@@ -7,7 +7,7 @@ public class SaveTask : MonoBehaviour
 {
     public Data data;
     public BG bg;
-    private GameObject defaultBG;
+    private GameObject bgNoTask;
     private GameObject addUI;
     private InputField textTitle;
     private InputField textDesc;
@@ -25,7 +25,7 @@ public class SaveTask : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defaultBG = bg.defaultBG;
+        bgNoTask = bg.bgNoTask;
         addUI = data.addUI;
         textTitle = data.textTitle;
         textDesc = data.textDesc;
@@ -59,7 +59,7 @@ public class SaveTask : MonoBehaviour
         textTitle.text = "";
         textDesc.text = "";
         completePos.anchoredPosition3D += new Vector3(0, -distanceBetweenTasks, 0);
-        defaultBG.SetActive(false);
+        bgNoTask.SetActive(false);
         taskIndex.SetActive(true);
     }
 }

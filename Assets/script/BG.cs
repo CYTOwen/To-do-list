@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class BG : MonoBehaviour
 {
-    public GameObject defaultBG;
+    public GameObject bgMain;
+    public GameObject bgNoTask;
 }
