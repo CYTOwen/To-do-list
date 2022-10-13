@@ -46,7 +46,7 @@ public class SaveTask : MonoBehaviour
     }
     public void saveTask()
     {
-        addUI.SetActive(false);
+        data.hideAddUI();
         task = Instantiate(taskTemplate);
         taskPos = task.transform as RectTransform;
         task.GetComponent<Complete>().data = data;

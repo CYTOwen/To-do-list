@@ -21,4 +21,12 @@ public class Data : MonoBehaviour
     public float distanceComplete = 112.5f;
     public float distanceBetweenTasks = 88f;
     public float distanceBetweenTasksFirst = 67.5f;
+    public void showAddUI()
+    {
+        addUI.SetActive(true);
+    }
+    public void hideAddUI()
+    {
+        addUI.SetActive(false);
+    }
 }
