@@ -1456,6 +1456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff7da02a550ff845a6977e31bcc61c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 1829999688}
   buttonAddTask: {fileID: 104220249}
   task: {fileID: 815315937}
   inputSearch: {fileID: 176283811}
@@ -1472,6 +1473,7 @@ MonoBehaviour:
   distanceComplete: 112.5
   distanceBetweenTasks: 88
   distanceBetweenTasksFirst: 67.5
+  completePosOrg: {x: -112.5, y: 157.5, z: 0}
 --- !u!224 &997275377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1829,6 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8be8e656cd22146a16f4b6ad748eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 997275376}
   bgMain: {fileID: 1870142849}
   bgNoTask: {fileID: 1753556747}
 --- !u!1 &1854644613

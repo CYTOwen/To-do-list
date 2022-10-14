@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Complete : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class Complete : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        posThis = this.transform as RectTransform;
         completePos = data.completePos;
         todayPos = data.todayPos;
         taskComplete = data.taskComplete;
@@ -33,6 +33,14 @@ public class Complete : MonoBehaviour
     void Update()
     {
 
+    }
+    public void updateData(Data data, string title, Vector3 position)
+    {
+        posThis = this.transform as RectTransform;
+        posThis.anchoredPosition3D = position;
+        this.data = data;
+        this.GetComponentInChildren<Text>().text = title;
+        this.name = title;
     }
     public void completeTask()
     {
