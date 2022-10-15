@@ -24,7 +24,6 @@ public class SaveTask : MonoBehaviour
         data.hideAddUI();
         Complete newTask = Instantiate(taskTemplate, data.today.transform).GetComponent<Complete>();
         newTask.updateData(data, data.textTitle.text, new Vector3(data.distanceToday, data.taskToday.Count * -data.distanceBetweenTasks - data.distanceBetweenTasksFirst, 0));
-        data.addTaskToday(newTask.gameObject);
         data.resetInput();
         data.updateCompletePos();
         bg.whetherShowBgNoTask();
