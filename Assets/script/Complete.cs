@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Complete : MonoBehaviour
 {
     public Data data;
-    private RectTransform posThis;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +19,7 @@ public class Complete : MonoBehaviour
     }
     public void updateData(Data data, string title, Vector3 position)
     {
-        posThis = this.transform as RectTransform;
+        RectTransform posThis = this.transform as RectTransform;
         posThis.anchoredPosition3D = position;
         data.addTaskToday(posThis);
         this.data = data;
