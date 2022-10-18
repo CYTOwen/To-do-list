@@ -1,2 +1,2 @@
 # To-do-list
-成功利用sourcetree同步unity專案了
+有關顯示任務詳細資訊的部分尚未完成，請先忽略。
