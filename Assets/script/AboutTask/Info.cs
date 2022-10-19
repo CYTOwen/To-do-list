@@ -20,6 +20,8 @@ public class Info : MonoBehaviour
     public void openTaskInfo()
     {
         bg.hideBGMain();
+        data.hideTask();
         bg.showBGTaskInfo();
+        bg.setBGTaskInfoData(this.GetComponent<Complete>());
     }
 }

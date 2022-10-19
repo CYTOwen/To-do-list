@@ -11,12 +11,23 @@ public class BG : MonoBehaviour
     public GameObject bgTaskInfo;
     public Text textInfoTitle;
     public Text textInfoDesc;
+    public Complete taskInfoName;
+    public void Start()
+    {
+        whetherShowBgNoTask();
+    }
     public void whetherShowBgNoTask()
     {
         if (data.taskToday.Count + data.taskComplete.Count == 0)
+        {
             bgNoTask.SetActive(true);
+            data.hideTask();
+        }
         else
+        {
             bgNoTask.SetActive(false);
+            data.showTask();
+        }
     }
     public void showBGMain()
     {
@@ -34,8 +45,14 @@ public class BG : MonoBehaviour
     {
         bgTaskInfo.SetActive(false);
     }
-    public void setBGTaskInfoText()
+    public void setBGTaskInfoData(Complete task)
     {
-        textInfoTitle.text = this.name;
+        taskInfoName = task;
+        textInfoTitle.text = task.name;
+        textInfoDesc.text = task.desc;
+    }
+    public void resetTaskInfoName()
+    {
+        taskInfoName = null;
     }
 }
