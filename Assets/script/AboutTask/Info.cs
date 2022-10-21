@@ -24,4 +24,11 @@ public class Info : MonoBehaviour
         bg.showBGTaskInfo();
         bg.setBGTaskInfoData(this.GetComponent<Complete>());
     }
+    public void closeTaskInfo()
+    {
+        bg.hideBGTaskInfo();
+        bg.showBGMain();
+        data.showTask();
+        bg.resetTaskInfoName();
+    }
 }
