@@ -49,7 +49,7 @@ public class BG : MonoBehaviour
     {
         taskInfoName = task;
         textInfoTitle.text = task.name;
-        textInfoDesc.text = task.desc;
+        //textInfoDesc.text = task.desc;
     }
     public void resetTaskInfoName()
     {

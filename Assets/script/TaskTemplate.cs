@@ -6,11 +6,13 @@ public class TaskTemplate
 {
     public string Title;
     public string Desc;
-    public Vector3 Positon;
-    public TaskTemplate(string title, string desc, Vector3 position)
+    public string Time;
+    public bool IsComplete;
+    public TaskTemplate(string title, string desc, string time)
     {
         Title = title;
         Desc = desc;
-        Positon = position;
+        Time = time;
+        IsComplete = false;
     }
 }

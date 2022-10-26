@@ -7,7 +7,7 @@ public class Complete : MonoBehaviour
 {
     public Data data;
     public BG bg;
-    public string desc;
+    public TaskTemplate task;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +19,13 @@ public class Complete : MonoBehaviour
     {
 
     }
-    public void updateData(Data data, BG bg, string title, string desc, Vector3 position)
+    public void updateData(Data data, TaskTemplate newTask)
     {
         setScriptRef(this.gameObject, data, bg);
         RectTransform posThis = this.transform as RectTransform;
-        posThis.anchoredPosition3D = position;
         data.addTaskToday(posThis);
         this.data = data;
-        this.GetComponentInChildren<Text>().text = title;
-        this.name = title;
-        this.desc = desc;
+        this.task = newTask;
     }
     public void setScriptRef(GameObject task, Data data, BG bg)
     {
