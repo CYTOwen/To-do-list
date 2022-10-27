@@ -19,9 +19,9 @@ public class Delete : MonoBehaviour
     }
     public void deleteTask()
     {
-        data.removeTaskToday(bg.taskInfoName.transform as RectTransform);
-        data.removeTaskComplete(bg.taskInfoName.transform as RectTransform);
-        Destroy(bg.taskInfoName.gameObject);
+        data.removeTaskToday(bg.taskInfoTargetName.transform as RectTransform);
+        data.removeTaskComplete(bg.taskInfoTargetName.transform as RectTransform);
+        Destroy(bg.taskInfoTargetName.gameObject);
         bg.resetTaskInfoName();
         bg.hideBGTaskInfo();
         bg.showBGMain();

@@ -19,31 +19,40 @@ public class Complete : MonoBehaviour
     {
 
     }
-    public void updateData(Data data, TaskTemplate newTask)
+    public void updateData(Data dataa, BG bgg, TaskTemplate newTask)
     {
-        setScriptRef(this.gameObject, data, bg);
+        data = dataa;
+        bg = bgg;
+        setScriptRef(data, bg);
         RectTransform posThis = this.transform as RectTransform;
         data.addTaskToday(posThis);
-        this.data = data;
-        this.task = newTask;
+        task = newTask;
+        this.name = newTask.Title;
+        updateTaskUI();
     }
-    public void setScriptRef(GameObject task, Data data, BG bg)
+    public void setScriptRef(Data data, BG bg)
     {
-        Info info = task.GetComponent<Info>();
+        Info info = this.GetComponent<Info>();
         info.bg = bg;
         info.data = data;
-        Delete delete = task.GetComponent<Delete>();
+        Delete delete = this.GetComponent<Delete>();
         delete.bg = bg;
         delete.data = data;
+    }
+    public void updateTaskUI()
+    {
+        transform.GetChild(0).gameObject.GetComponent<Text>().text = task.Title;
+        transform.GetChild(1).gameObject.GetComponent<Text>().text = task.Time;
     }
     public void completeTask()
     {
         data.switchTask(this.transform as RectTransform);
         data.updateAllPos();
+        Debug.Log(data.taskToday.Count + "\n" + data.taskComplete.Count);
     }
-    public void completeTaskFromInfo()
+    public void completeTaskInInfo()
     {
-        data.switchTask(bg.taskInfoName.transform as RectTransform);
+        data.switchTask(bg.taskInfoTargetName.transform as RectTransform);
         bg.resetTaskInfoName();
         bg.hideBGTaskInfo();
         bg.showBGMain();

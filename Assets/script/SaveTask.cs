@@ -13,7 +13,7 @@ public class SaveTask : MonoBehaviour
     {
         data.hideAddUI();
         Complete newTask = Instantiate(taskTemplate, data.today.transform).GetComponent<Complete>();
-        newTask.updateData(data, new TaskTemplate(data.textTitle.text, data.textDesc.text, "Not Today"));
+        newTask.updateData(data, bg, new TaskTemplate(data.textTitle.text, data.textDesc.text, "Not Today"));
         data.resetInput();
         data.updateAllPos();
         bg.whetherShowBgNoTask();

@@ -1126,7 +1126,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1559090980}
         m_TargetAssemblyTypeName: Complete, Assembly-CSharp
-        m_MethodName: completeTaskFromInfo
+        m_MethodName: completeTaskInInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3642,7 +3642,7 @@ MonoBehaviour:
   bgTaskInfo: {fileID: 522003223}
   textInfoTitle: {fileID: 1056341509}
   textInfoDesc: {fileID: 1020982830}
-  taskInfoName: {fileID: 0}
+  taskInfoTargetName: {fileID: 0}
 --- !u!1 &1854644613
 GameObject:
   m_ObjectHideFlags: 0
